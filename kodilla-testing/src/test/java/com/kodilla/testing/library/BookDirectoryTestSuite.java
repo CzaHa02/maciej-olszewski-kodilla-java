@@ -93,16 +93,16 @@ public class BookDirectoryTestSuite {
 
     @Test
     void testListNonBorrowedBooks() {
-        // given
+
         LibraryUser libraryUser = new LibraryUser("Adam", "Smith", "12312");
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> booksInHandsOfUser = new ArrayList<>();
 
-        // when
+
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(booksInHandsOfUser);
         List<Book> nonBorrowedBooksList = bookLibrary.listBooksInHandsOf(libraryUser);
 
-        // then
+
         assertEquals(0, nonBorrowedBooksList.size());
         verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(libraryUser);
     }
@@ -120,7 +120,7 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(UserBooks);
         List<Book> borrowedBooksList = bookLibrary.listBooksInHandsOf(libraryUser);
 
-        // then
+
         assertEquals(1, borrowedBooksList.size());
         assertEquals(borrowedBook, borrowedBooksList.get(0));
         verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(libraryUser);
@@ -148,7 +148,7 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(UserBooks);
         List<Book> borrowedFiveBooksList = bookLibrary.listBooksInHandsOf(libraryUser);
 
-        // then
+
         assertEquals(5, borrowedFiveBooksList.size());
         assertEquals(borrowedBook, borrowedFiveBooksList.get(0));
 
