@@ -73,7 +73,7 @@ public class StatisticTests {
     @Test
     void testWhenCommentsCountIsLowerThanPostsCount() {
         calculator.calculateStatistics(statistic);
-        if (statistic.commentsCount() < statistic.postCount()) ;
+        if (statistic.commentsCount() < statistic.postCount()) ;git
 
         Assertions.assertEquals(calculator.getAverageCommentsPerPost(), calculator.getAverageCommentsPerPost());
 
