@@ -14,22 +14,22 @@ class BoardTestSuite {
 
     @Test
     void testAddTaskList() {
-        //Given
+    
         Board project = prepareTestData();
-        //When
+    
 
-        //Then
+ 
         assertEquals(3, project.getTaskLists().size());
     }
 
     private Board prepareTestData() {
-        //users
+  
         User user1 = new User("developer1", "John Smith");
         User user2 = new User("projectmanager1", "Nina White");
         User user3 = new User("developer2", "Emilia Stephanson");
         User user4 = new User("developer3", "Konrad Bridge");
 
-        //tasks
+  
         Task task1 = new Task("Microservice for taking temperature",
                 "Write and test the microservice taking\n" +
                         "the temperaure from external service",
@@ -68,7 +68,7 @@ class BoardTestSuite {
                 LocalDate.now().minusDays(15),
                 LocalDate.now().minusDays(2));
 
-        //taskLists
+  
         TaskList taskListToDo = new TaskList("To do");
         taskListToDo.addTask(task1);
         taskListToDo.addTask(task3);
@@ -79,7 +79,7 @@ class BoardTestSuite {
         TaskList taskListDone = new TaskList("Done");
         taskListDone.addTask(task6);
 
-        //board
+
         Board project = new Board("Project Weather Prediction");
         project.addTaskList(taskListToDo);
         project.addTaskList(taskListInProgress);
@@ -88,17 +88,17 @@ class BoardTestSuite {
     }
     @Test
     void testAddTaskListFindUsersTasks() {
-        //Given
+
         Board project = prepareTestData();
 
-        //When
+
         User user = new User("developer1", "John Smith");
         List<Task> tasks = project.getTaskLists().stream()
                 .flatMap(l -> l.getTasks().stream())
                 .filter(t -> t.getAssignedUser().equals(user))
                 .collect(toList());
 
-        //Then
+ 
         assertEquals(2, tasks.size());
         assertEquals(user, tasks.get(0).getAssignedUser());
         assertEquals(user, tasks.get(1).getAssignedUser());
@@ -133,7 +133,7 @@ class BoardTestSuite {
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(Task::getCreated)
-                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)  // [7]
+                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)  
                 .count();
 
 
