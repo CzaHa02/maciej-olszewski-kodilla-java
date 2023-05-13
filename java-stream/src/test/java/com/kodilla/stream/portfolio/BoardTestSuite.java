@@ -144,12 +144,12 @@ class BoardTestSuite {
         Board board = prepareTestData();
 
         double averageList = board.getTaskLists().stream()
-                .filter(taskList -> taskList.getName().equals("In Progress"))
+                .filter(taskList -> taskList.getName().equals("In progress"))
                 .flatMap(taskList -> taskList.getTasks().stream())
                 .mapToDouble(task -> ChronoUnit.DAYS.between(task.getCreated(),LocalDate.now()))
                 .average()
                 .orElse(0.0);
-        assertEquals(0.0, averageList);
+        assertEquals(10.0, averageList);
     }
 
 
