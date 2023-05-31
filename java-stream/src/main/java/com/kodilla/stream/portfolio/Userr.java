@@ -1,11 +1,11 @@
 package com.kodilla.stream.portfolio;
 
-public final class User {
+public final class Userr {
 
     private final String username;
     private final String realName;
 
-    public User(final String username, final String realName) {
+    public Userr(final String username, final String realName) {
         this.username = username;
         this.realName = realName;
     }
@@ -28,8 +28,8 @@ public final class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
+        if (!(o instanceof Userr)) return false;
+        Userr user = (Userr) o;
         return username.equals(user.username);
     }
 }

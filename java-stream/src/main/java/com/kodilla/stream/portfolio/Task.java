@@ -6,13 +6,13 @@ public final class Task {
 
     private final String title;
     private final String description;
-    private final User assignedUser;
-    private final User creator;
+    private final Userr assignedUser;
+    private final Userr creator;
     private final LocalDate created;
     private final LocalDate deadline;
 
     public Task(final String title, final String description,
-                final User assignedUser, final User creator,
+                final Userr assignedUser, final Userr creator,
                 final LocalDate created, final LocalDate deadline) {
         this.title = title;
         this.description = description;
@@ -30,11 +30,11 @@ public final class Task {
         return description;
     }
 
-    public User getAssignedUser() {
+    public Userr     getAssignedUser() {
         return assignedUser;
     }
 
-    public User getCreator() {
+    public Userr getCreator() {
         return creator;
     }
 

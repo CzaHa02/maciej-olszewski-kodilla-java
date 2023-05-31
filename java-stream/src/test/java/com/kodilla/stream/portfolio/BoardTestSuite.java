@@ -24,10 +24,10 @@ class BoardTestSuite {
 
     private Board prepareTestData() {
   
-        User user1 = new User("developer1", "John Smith");
-        User user2 = new User("projectmanager1", "Nina White");
-        User user3 = new User("developer2", "Emilia Stephanson");
-        User user4 = new User("developer3", "Konrad Bridge");
+        Userr user1 = new Userr("developer1", "John Smith");
+        Userr user2 = new Userr("projectmanager1", "Nina White");
+        Userr user3 = new Userr("developer2", "Emilia Stephanson");
+        Userr user4 = new Userr("developer3", "Konrad Bridge");
 
   
         Task task1 = new Task("Microservice for taking temperature",
@@ -92,7 +92,7 @@ class BoardTestSuite {
         Board project = prepareTestData();
 
 
-        User user = new User("developer1", "John Smith");
+        Userr user = new Userr("developer1", "John Smith");
         List<Task> tasks = project.getTaskLists().stream()
                 .flatMap(l -> l.getTasks().stream())
                 .filter(t -> t.getAssignedUser().equals(user))
