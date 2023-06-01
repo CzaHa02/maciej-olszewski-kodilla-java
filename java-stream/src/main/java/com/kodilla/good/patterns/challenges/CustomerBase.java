@@ -1,4 +1,4 @@
-package com.kodilla.stream.challenges;
+package com.kodilla.good.patterns.challenges;
 
 public class CustomerBase {
     User user1 = new User("Mateusz ");
