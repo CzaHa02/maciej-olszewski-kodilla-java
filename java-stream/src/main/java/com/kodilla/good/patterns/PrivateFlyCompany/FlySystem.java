@@ -17,19 +17,19 @@ public class FlySystem {
 
     public List<Fly> findFromCity(String city) {
         return flies.stream()
-                .filter(lot -> lot.getStartCity().equals(city))
+                .filter(fly -> fly.getStartCity().equals(city))
                 .collect(Collectors.toList());
     }
 
     public List<Fly> findToCity(String city) {
         return flies.stream()
-                .filter(lot -> lot.getEndCity().equals(city))
+                .filter(fly -> fly.getEndCity().equals(city))
                 .collect(Collectors.toList());
     }
 
     public List<Fly> findThroghCity(String city) {
         return flies.stream()
-                .filter(lot -> lot.getStartCity().equals(city) || lot.getEndCity().equals(city))
+                .filter(fly -> fly.getMiddleCity().equals(city) )
                 .collect(Collectors.toList());
     }
 }
