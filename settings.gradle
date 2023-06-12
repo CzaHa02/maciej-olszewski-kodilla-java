@@ -6,3 +6,6 @@ include 'kodilla-rps'
 include 'kodilla-spring'
 include 'spring-porfolio'
 include 'spring-library'
+include 'kodilla-spring-web'
+include 'kodilla-spring2'
+
