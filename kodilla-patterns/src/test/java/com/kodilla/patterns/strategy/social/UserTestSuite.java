@@ -8,30 +8,30 @@ import org.junit.jupiter.api.Test;
 public class UserTestSuite {
     @Test
     void testDefaultSharingStrategies() {
-        // Given
+
         User millenials = new Millenials("John");
         User yGeneration = new YGeneration("Kate");
         User zGeneration = new ZGeneration("Tom");
 
-        // When & Then
+
         millenials.setSocialPublisher(new FacebookPublisher());
         yGeneration.setSocialPublisher(new TwitterPublisher());
         zGeneration.setSocialPublisher(new SnapchatPublisher());
 
-        millenials.sharePost(); // Sharing post on Facebook
-        yGeneration.sharePost(); // Sharing post on Twitter
-        zGeneration.sharePost(); // Sharing post on Snapchat
+        millenials.sharePost();
+        yGeneration.sharePost();
+        zGeneration.sharePost();
     }
 
     @Test
     void testIndividualSharingStrategy() {
-        // Given
+
         User user = new Millenials("Alice");
 
-        // When
+
         user.setSocialPublisher(new TwitterPublisher());
 
-        // Then
+
         user.sharePost();
     }
 }
