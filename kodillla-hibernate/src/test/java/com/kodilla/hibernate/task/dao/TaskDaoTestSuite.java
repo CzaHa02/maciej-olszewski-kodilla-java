@@ -1,10 +1,13 @@
 package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.Task;
+import com.kodilla.hibernate.task.TaskFinancialDetails;
+import com.kodilla.hibernate.tasklist.dao.TaskListDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +19,7 @@ class TaskDaoTestSuite {
 
 @Autowired
     private TaskDao taskDao;
+private TaskListDao taskListDao;
     private static final String DESCRIPTION = "Test: Learn Hibernate";
 
     @Test
@@ -31,7 +35,7 @@ class TaskDaoTestSuite {
         Optional<Task> readTask = taskDao.findById(id);
         assertTrue(readTask.isPresent());
 
-        //CleanUp
+
         taskDao.deleteById(id);
     }
 
@@ -50,4 +54,20 @@ class TaskDaoTestSuite {
 
 
     }
+    @Test
+    void testTaskDaoSaveWithFinancialDetails() {
+
+        Task task = new Task(DESCRIPTION, 30);
+       task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
+
+
+        taskDao.save(task);
+        int id = task.getId();
+
+
+        assertEquals(0, id);
+
+
+        taskDao.deleteById(id);
+   }
 }
