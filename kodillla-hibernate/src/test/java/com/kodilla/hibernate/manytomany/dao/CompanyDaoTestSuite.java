@@ -2,9 +2,13 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,6 +17,30 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+    private EmployeeDao employeeDao;
+
+    @Test
+    void testSearchCompanyByValue() {
+        Company dataMaesters = new Company("Data Maesters");
+        Company semiMaesters = new Company("Semi Maesters");
+
+        companyDao.saveAll(Arrays.asList(dataMaesters, semiMaesters));
+        List<Company> foundCompanies = companyDao.retriveCompaniesWithValue("Dat ");
+        Assertions.assertEquals("Data Maesters", foundCompanies);
+    }
+    @Test
+    void testFindByLastName(){
+        Employee employee1 = new Employee("Emanuel", "Esmal");
+        Employee employee2 = new Employee("Anna","Waltz");
+
+        employeeDao.saveAll(Arrays.asList(employee1,employee2));
+        List<Employee> foundEmployee= employeeDao.retrieveLastName("Esmal");
+       assertTrue(foundEmployee.contains(employee1));
+
+    }
+
+
+
 
     @Test
     void testSaveManyToMany() {
@@ -58,5 +86,6 @@ class CompanyDaoTestSuite {
         } catch (Exception e) {
 
         }
+
     }
 }

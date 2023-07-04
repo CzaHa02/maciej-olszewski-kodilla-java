@@ -5,7 +5,10 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedQuery(
+        name = "Employee.retriveLastName",
+        query = "FROM Employee WHERE MATCH (lastname)"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -31,6 +34,9 @@ public class Employee {
         return id;
     }
 
+
+
+
     @NotNull
     @Column(name = "FIRSTNAME")
     public String getFirstname() {
@@ -43,15 +49,15 @@ public class Employee {
         return lastname;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private void setFirstname(String firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    private void setLastname(String lastname) {
+   public void setLastname(String lastname) {
         this.lastname = lastname;
     }
     @ManyToMany(cascade = CascadeType.ALL)
@@ -64,7 +70,7 @@ public class Employee {
         return companies;
     }
 
-    private void setCompanies(List<Company> companies) {
+    public void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
 }

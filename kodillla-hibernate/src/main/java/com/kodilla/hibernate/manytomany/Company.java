@@ -6,6 +6,10 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retriveCompaniesWithValue",
+        query = "SELECT c FROM Company c WHERE SUBSTRING(c.name, 1, 3) = :partialName"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
