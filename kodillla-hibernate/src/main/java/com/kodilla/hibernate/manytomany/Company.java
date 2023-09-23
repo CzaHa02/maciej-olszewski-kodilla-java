@@ -1,14 +1,13 @@
 package com.kodilla.hibernate.manytomany;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.retriveCompaniesWithValue",
-        query = "SELECT c FROM Company c WHERE SUBSTRING(c.name, 1, 3) = :partialName"
+        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :partialName"
 )
 @Entity
 @Table(name = "COMPANIES")
@@ -27,13 +26,12 @@ public class Company {
 
     @Id
     @GeneratedValue
-  @NotNull
     @Column(name = "COMPANY_ID", unique = true)
     public int getId() {
         return id;
     }
 
-    @NotNull
+
     @Column(name = "COMPANY_NAME")
     public String getName() {
         return name;

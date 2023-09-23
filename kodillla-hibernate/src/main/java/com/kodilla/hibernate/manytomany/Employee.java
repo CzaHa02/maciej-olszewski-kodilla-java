@@ -6,8 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 @NamedQuery(
-        name = "Employee.retriveLastName",
-        query = "FROM Employee WHERE MATCH (lastname)"
+        name = "Employee.retrieveByLastName",
+        query = "SELECT e FROM Employee e WHERE e.lastname = :lastName"
 )
 @Entity
 @Table(name = "EMPLOYEES")
@@ -28,7 +28,6 @@ public class Employee {
 
     @Id
     @GeneratedValue
-    @NotNull
     @Column(name = "EMPLOYEE_ID", unique = true)
     public int getId() {
         return id;
