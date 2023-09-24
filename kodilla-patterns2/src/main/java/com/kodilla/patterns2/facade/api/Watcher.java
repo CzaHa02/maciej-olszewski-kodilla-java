@@ -16,6 +16,8 @@ public class Watcher {
     @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))")
     public void orderLog(){
         LOGGER.info("Order process has started");}
+
+
     @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))")
     public void UserLog(){
         LOGGER.info("Order process for Adam Smith");}
