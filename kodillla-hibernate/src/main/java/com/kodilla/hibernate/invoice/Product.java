@@ -1,6 +1,6 @@
 package com.kodilla.hibernate.invoice;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "products")

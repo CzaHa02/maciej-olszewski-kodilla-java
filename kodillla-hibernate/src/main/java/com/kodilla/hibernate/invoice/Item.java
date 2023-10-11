@@ -1,7 +1,6 @@
 package com.kodilla.hibernate.invoice;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity

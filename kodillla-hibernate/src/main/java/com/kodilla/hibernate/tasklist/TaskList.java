@@ -1,8 +1,8 @@
 package com.kodilla.hibernate.tasklist;
 
 import com.kodilla.hibernate.task.Task;
-import jakarta.persistence.*;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

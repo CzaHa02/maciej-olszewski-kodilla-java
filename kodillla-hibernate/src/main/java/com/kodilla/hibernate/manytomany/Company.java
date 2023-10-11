@@ -1,7 +1,8 @@
 package com.kodilla.hibernate.manytomany;
 
-import jakarta.persistence.*;
+import org.hibernate.annotations.Entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,8 +45,8 @@ public class Company {
     private void setName(String name) {
         this.name = name;
     }
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
-    public List<Employee> getEmployees() {
+   @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
+    public List <Employee> getEmployees() {
         return employees;
     }
 

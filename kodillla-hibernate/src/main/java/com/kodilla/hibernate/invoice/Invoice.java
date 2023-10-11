@@ -1,7 +1,6 @@
 package com.kodilla.hibernate.invoice;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,13 +16,13 @@ public class Invoice {
     @Column(name = "invoice_number")
     private String number;
 
-    @OneToMany(
+   @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "invoice",
+           mappedBy = "invoice",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Item> items = new ArrayList<>();
+   private List<Item> items = new ArrayList<>();
 
     public Invoice() {
     }
@@ -41,10 +40,10 @@ public class Invoice {
     }
 
     public List<Item> getItems() {
-        return items;
-    }
+      return items;
+   }
 
-    public void addItem(Item item) {
+   public void addItem(Item item) {
         items.add(item);
         item.setInvoice(this);
     }
