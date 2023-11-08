@@ -15,9 +15,11 @@ public class FacebookTestingApp {
     public static final String XPATH_SELECTMONTH = "//div[contains(@class, \"_5k_5\")]/span/select[2]";
     public static final String XPATH_SELECTYEAR = "//div[contains(@class, \"_5k_5\")]/span/select[3]";
     public static final String XPATH_WAIT ="//div[@class='al64']";
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
         driver.get("https://www.facebook.com/");
+
+        Thread.sleep(4000);
 
         while (!driver.findElement(By.xpath(XPATH_WAIT)).isDisplayed());
 
